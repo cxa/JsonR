@@ -1,0 +1,28 @@
+{
+  "name": "bs-json-util",
+  "version": "1.0.0",
+  "main": "src/jsonUtil.re",
+  "license": "MIT",
+  "scripts": {
+    "dev": "bsb -make-world -w",
+    "test": "bsb -make-world && jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cxa/bs-json-util.git"
+  },
+  "keywords": [
+    "bucklescript",
+    "json"
+  ],
+  "author": "CHEN Xianan<xianan.chen@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/cxa/bs-json-util/issues"
+  },
+  "homepage": "https://github.com/cxa/bs-json-util#readme",
+  "devDependencies": {
+    "bs-jest": "^0.1.0",
+    "bs-platform": "^1.7.4",
+    "jest": "^20.0.4"
+  }
+}
