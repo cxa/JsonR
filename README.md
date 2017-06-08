@@ -17,7 +17,7 @@ Add `bs-json-util` to your project's dependencies by `yarn` or `npm`, And add it
 
 ### Basic example
 
-```reasonml
+```reason
 
 open JsonUtil;
 open Js_result;
