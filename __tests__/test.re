@@ -13,7 +13,7 @@ let obj = {
     {"name": "Anil Madhavapeddy", "affiliation": "Cambridge"},
     {"name": "Yaron Minsky", "affiliation": "Jane Street"}
   ],
-  "fortest": {"only": {"deep": true}},
+  "fortest": {"only": {"deep": Js.true_}},
   "is_online": Js.true_
 };
 
@@ -28,7 +28,7 @@ let is_ok r =>
 let unsafe_ok r =>
   switch r {
   | Js_result.Ok a => a
-  | _ => failwith "told u unsafe"
+  | Js_result.Error e => failwith e
   };
 
 let _ = {
@@ -36,6 +36,9 @@ let _ = {
   test
     "member_multiple_keys"
     (fun () => expect (is_ok (member "fortest.only.deep" json)) |> toEqual true);
+  test
+    "member_multiple_keys_value"
+    (fun () => expect (unsafe_ok (member "fortest.only.deep" json |> to_bool)) |> toEqual true);
   test
     "member_invalid_single_key"
     (fun () => expect (is_ok (member "nonexist" json)) |> toEqual false);
