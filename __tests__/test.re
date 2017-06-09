@@ -2,7 +2,7 @@ open Jest;
 
 open Expect;
 
-open JsonUtil;
+open JsonUtil.Json;
 
 let obj = {
   "title": "Real World OCaml",

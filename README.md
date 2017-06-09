@@ -19,7 +19,7 @@ Add `bs-json-util` to your project's dependencies by `yarn` or `npm`, And add it
 
 ```reason
 
-open JsonUtil;
+open JsonUtil.Json;
 open Js_result;
 
 let json = parse_result json_source;
@@ -40,6 +40,10 @@ switch age {
 ```
 
 You can open `__tests__/test.re` to view more examples.
+
+### Advance usage
+
+Need to use the another `Result` type such as `Containers.Result`? Just `Module Json = JsonUtil.Impl Containers.Result;`.
 
 ## LICENSE
 
