@@ -1,16 +1,16 @@
-# bs-json-util
+# JsonR
 
-A BuckleScript lib for handling JSON, written in [ReasonML](http://facebook.github.io/reason/).
+A BuckleScript lib for handling JSON in `Result` favor, written in [ReasonML](http://facebook.github.io/reason/).
 
 ## Usage
 
-Add `bs-json-util` to your project's dependencies by `yarn` or `npm`, And add it to `bs-dependencies` for `bsconfig.json`, e.g.
+Add `json-r` to your project's dependencies by `yarn` or `npm`, And add it to `bs-dependencies` for `bsconfig.json`, e.g.
 
 ```json
 {
     "name": "coolproj",
     "bs-dependencies": [
-      "bs-json-util"
+      "json-r"
     ]
 }
 ```
@@ -19,18 +19,24 @@ Add `bs-json-util` to your project's dependencies by `yarn` or `npm`, And add it
 
 ```reason
 
-open JsonUtil.Json;
+open JsonR.Json;
 open Js_result;
 
 let json = parse_result json_source;
 
 /* Access a field and its value, return a Js_result type */
 
-let _ = member "title" json |> to_string;
+let title = json |> string_for "title";
 
-/* you can also pass key path, this is our selling point :) */
+/* or more verbose */
+let title = json |> member "title" |> to_string;
 
-let age = member "author.age" json |> to_int;
+
+/* you can also pass key path */
+let age = json |> int_for "author.age";
+
+/ * or */
+let age = json |> member "author.age" |> to_int;
 
 switch age {
 | Ok a => DoWhatYouWant a
@@ -43,7 +49,7 @@ You can open `__tests__/test.re` to view more examples.
 
 ### Advance usage
 
-Need to use the another `Result` type such as `Containers.Result`? Just `Module Json = JsonUtil.Impl Containers.Result;`.
+Need to use the another `Result` type such as `Containers.Result`? Just `Module Json = JsonR.Impl Containers.Result;`.
 
 ## LICENSE
 

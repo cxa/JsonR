@@ -1,7 +1,7 @@
 {
-  "name": "bs-json-util",
-  "version": "2.0.0",
-  "main": "src/jsonUtil.re",
+  "name": "json-r",
+  "version": "2.1.0",
+  "main": "src/jsonR.re",
   "license": "MIT",
   "scripts": {
     "dev": "bsb -make-world -w",
@@ -9,20 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cxa/bs-json-util.git"
+    "url": "git+https://github.com/cxa/JsonR.git"
   },
-  "keywords": [
-    "bucklescript",
-    "json"
-  ],
+  "keywords": ["bucklescript", "json"],
   "author": "CHEN Xianan<xianan.chen@gmail.com>",
   "bugs": {
-    "url": "https://github.com/cxa/bs-json-util/issues"
+    "url": "https://github.com/cxa/JsonR/issues"
   },
-  "homepage": "https://github.com/cxa/bs-json-util#readme",
+  "homepage": "https://github.com/cxa/JsonR",
   "devDependencies": {
     "bs-jest": "^0.1.0",
-    "bs-platform": "^1.7.4",
+    "bs-platform": "^1.8.2",
     "jest": "^20.0.4"
   }
 }

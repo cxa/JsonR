@@ -2,7 +2,7 @@ open Jest;
 
 open Expect;
 
-open JsonUtil.Json;
+open JsonR.Json;
 
 let obj = {
   "title": "Real World OCaml",
@@ -28,7 +28,7 @@ let is_ok r =>
 let unsafe_ok r =>
   switch r {
   | Js_result.Ok a => a
-  | Js_result.Error e => failwith e
+  | Js_result.Error e => failwith (string_of_error e)
   };
 
 let _ = {
