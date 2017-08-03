@@ -33,7 +33,7 @@ module Impl (R: Result) => {
     | _ => R.Error e
     };
   let id x => x;
-  let parse_result json_str =>
+  let parse_string json_str =>
     try (R.Ok (Js_json.parseExn json_str)) {
     | _ => R.Error (InvalidJsonSource "bs-json-util: Invalid JSON source")
     };

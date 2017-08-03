@@ -17,7 +17,7 @@ let obj = {
   "is_online": Js.true_
 };
 
-let json = parse_result @@ Js.Json.stringify (Obj.magic obj);
+let json = parse_string @@ Js.Json.stringify (Obj.magic obj);
 
 let is_ok r =>
   switch r {

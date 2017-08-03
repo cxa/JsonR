@@ -17,7 +17,7 @@ module Impl:
     let wrongVauleType: string => error;
     let context: string => error;
     let string_of_error: error => string;
-    let parse_result: string => R.t Js_json.t error;
+    let parse_string: string => R.t Js_json.t error;
     let member: Js_string.t => R.t Js_json.t error => R.t Js_json.t error;
     let is_null: Js_json.t => bool;
     let bool_for: Js_string.t => R.t Js_json.t error => R.t bool error;
@@ -43,7 +43,7 @@ module Json: {
   let wrongVauleType: string => error;
   let context: string => error;
   let string_of_error: error => string;
-  let parse_result: string => Js_result.t Js_json.t error;
+  let parse_string: string => Js_result.t Js_json.t error;
   let member: Js_string.t => Js_result.t Js_json.t error => Js_result.t Js_json.t error;
   let is_null: Js_json.t => bool;
   let bool_for: Js_string.t => Js_result.t Js_json.t error => Js_result.t bool error;
