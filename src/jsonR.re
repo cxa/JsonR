@@ -6,14 +6,17 @@ module type Result = {
 
 module Impl (R: Result) => {
   type error =
-    | InvalidJsonString string
+    | InvalidJsonSource string
     | KeyNotExisted string
-    | WrongVauleType string;
+    | WrongVauleType string
+    | Context string
+  [@@bs.deriving {accessors: accessors}];
   let string_of_error =
     fun
-    | InvalidJsonString s
+    | InvalidJsonSource s
     | KeyNotExisted s
-    | WrongVauleType s => s;
+    | WrongVauleType s
+    | Context s => s;
   let flat_map f r =>
     switch r {
     | R.Ok a => f a
@@ -32,7 +35,7 @@ module Impl (R: Result) => {
   let id x => x;
   let parse_result json_str =>
     try (R.Ok (Js_json.parseExn json_str)) {
-    | _ => R.Error (InvalidJsonString "bs-json-util: Invalid JSON source")
+    | _ => R.Error (InvalidJsonSource "bs-json-util: Invalid JSON source")
     };
   let member keypath result => {
     let to_result json key =>

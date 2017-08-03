@@ -8,9 +8,14 @@ module Impl:
   (R: Result) =>
   {
     type error =
-      | InvalidJsonString string
+      | InvalidJsonSource string
       | KeyNotExisted string
-      | WrongVauleType string;
+      | WrongVauleType string
+      | Context string;
+    let invalidJsonSource: string => error;
+    let keyNotExisted: string => error;
+    let wrongVauleType: string => error;
+    let context: string => error;
     let string_of_error: error => string;
     let parse_result: string => R.t Js_json.t error;
     let member: Js_string.t => R.t Js_json.t error => R.t Js_json.t error;
@@ -32,7 +37,11 @@ module Impl:
 module Json: {
   type error =
     Impl(Js_result).error =
-      | InvalidJsonString string | KeyNotExisted string | WrongVauleType string;
+      | InvalidJsonSource string | KeyNotExisted string | WrongVauleType string | Context string;
+  let invalidJsonSource: string => error;
+  let keyNotExisted: string => error;
+  let wrongVauleType: string => error;
+  let context: string => error;
   let string_of_error: error => string;
   let parse_result: string => Js_result.t Js_json.t error;
   let member: Js_string.t => Js_result.t Js_json.t error => Js_result.t Js_json.t error;
