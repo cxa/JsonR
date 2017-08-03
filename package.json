@@ -1,6 +1,6 @@
 {
   "name": "json-r",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "src/jsonR.re",
   "license": "MIT",
   "scripts": {

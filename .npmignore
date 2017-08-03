@@ -1,5 +1,6 @@
 /__test__/
 /node_modules/
 /lib/
+.sh
 .merlin
 yarn.*
