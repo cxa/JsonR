@@ -22,7 +22,7 @@ Add `json-r` to your project's dependencies by `yarn` or `npm`, And add it to `b
 open JsonR.Json;
 open Js_result;
 
-let json = parse_result json_source;
+let json = parse_string json_source;
 
 /* Access a field and its value, return a Js_result type */
 
