@@ -1,5 +1,7 @@
 # JsonR
 
+Deprecated. Use <https://github.com/cxa/bs-json-keypather> instead.
+
 A BuckleScript lib for handling JSON in `Result` favor, written in [ReasonML](http://facebook.github.io/reason/).
 
 ## Usage
@@ -8,17 +10,14 @@ Add `json-r` to your project's dependencies by `yarn` or `npm`, And add it to `b
 
 ```json
 {
-    "name": "coolproj",
-    "bs-dependencies": [
-      "json-r"
-    ]
+  "name": "coolproj",
+  "bs-dependencies": ["json-r"]
 }
 ```
 
 ### Basic example
 
 ```reason
-
 open JsonR.Json;
 open Js_result;
 
@@ -42,7 +41,6 @@ switch age {
 | Ok a => DoWhatYouWant a
 | Error e => HeyWeCantParseOutTheAge_CheckTheErrorMessage e
 };
-
 ```
 
 You can open `__tests__/test.re` to view more examples.
